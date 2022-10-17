@@ -13,20 +13,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function getCommonCharacterCount(s1, s2) {
  let count = 0;
- let arr1 = s1.split('').sort();
- let arr2 = s2.split('').sort();
- let arrayLen;
+ let one = s1.split('').sort();
+ let two = s2.split('').sort();
+ 
 
-  console.log(arr1);
-  console.log(arr2);
-  
-  arr1.length >= arr2.length ? arrayLen = arr1.length : arrayLen = arr2.length;
-  
-  for (let i = 0; i < arrayLen; i++) {
-    if (arr1[i] === arr2[i]) {
-      count++
-    } else {count}
-  }  
+  let i = one.length, j = two.length;
+while (i > 0 && j > 0) {
+    i--;
+    j--;
+    if (one[i] > two[j]) j++;
+    else if (one[i] < two[j]) i++;
+    else count ++;
+}
   return count;
 }
 
