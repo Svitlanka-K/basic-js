@@ -26,7 +26,7 @@ if (typeof(sampleActivity) !== 'string') {return false}
   else {
    let k = 0.693 / HALF_LIFE_PERIOD;
      T = Math.log(MODERN_ACTIVITY / +sampleActivity) / k;
-   return Math.round(T);
+   return Math.round(T) > 0 ? Math.round(T) : false;
  } 
 }
 
